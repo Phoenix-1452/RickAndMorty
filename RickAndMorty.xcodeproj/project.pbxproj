@@ -19,6 +19,9 @@
 		EAE397D22BF6127600528F38 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397D12BF6127600528F38 /* LocationViewController.swift */; };
 		EAE397D42BF6128D00528F38 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397D32BF6128D00528F38 /* EpisodeViewController.swift */; };
 		EAE397D62BF6129A00528F38 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397D52BF6129A00528F38 /* SettingsViewController.swift */; };
+		EAE397DC2BF6344B00528F38 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397DB2BF6344A00528F38 /* Service.swift */; };
+		EAE397DE2BF6350900528F38 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397DD2BF6350900528F38 /* Request.swift */; };
+		EAE397E02BF6362700528F38 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397DF2BF6362700528F38 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		EAE397D12BF6127600528F38 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		EAE397D32BF6128D00528F38 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		EAE397D52BF6129A00528F38 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		EAE397DB2BF6344A00528F38 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		EAE397DD2BF6350900528F38 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		EAE397DF2BF6362700528F38 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,9 @@
 		EAE397C42BF525D600528F38 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				EAE397DB2BF6344A00528F38 /* Service.swift */,
+				EAE397DD2BF6350900528F38 /* Request.swift */,
+				EAE397DF2BF6362700528F38 /* Endpoint.swift */,
 			);
 			path = APIClient;
 			sourceTree = "<group>";
@@ -220,13 +229,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE397B02BF5201600528F38 /* TabBarViewController.swift in Sources */,
+				EAE397DE2BF6350900528F38 /* Request.swift in Sources */,
 				EAE397D42BF6128D00528F38 /* EpisodeViewController.swift in Sources */,
+				EAE397E02BF6362700528F38 /* Endpoint.swift in Sources */,
 				EAE397CB2BF560DD00528F38 /* Episode.swift in Sources */,
 				EAE397D62BF6129A00528F38 /* SettingsViewController.swift in Sources */,
 				EAE397D02BF6125800528F38 /* CharacterViewController.swift in Sources */,
 				EAE397AC2BF5201600528F38 /* AppDelegate.swift in Sources */,
 				EAE397C92BF560D300528F38 /* Character.swift in Sources */,
 				EAE397C72BF560BE00528F38 /* Location.swift in Sources */,
+				EAE397DC2BF6344B00528F38 /* Service.swift in Sources */,
 				EAE397AE2BF5201600528F38 /* SceneDelegate.swift in Sources */,
 				EAE397D22BF6127600528F38 /* LocationViewController.swift in Sources */,
 			);
