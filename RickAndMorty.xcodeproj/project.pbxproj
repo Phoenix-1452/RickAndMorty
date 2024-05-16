@@ -19,7 +19,6 @@
 		EAE397D22BF6127600528F38 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397D12BF6127600528F38 /* LocationViewController.swift */; };
 		EAE397D42BF6128D00528F38 /* EpisodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397D32BF6128D00528F38 /* EpisodeViewController.swift */; };
 		EAE397D62BF6129A00528F38 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE397D52BF6129A00528F38 /* SettingsViewController.swift */; };
-		EAE397DA2BF62CEB00528F38 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = EAE397D92BF62CEB00528F38 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		EAE397D12BF6127600528F38 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		EAE397D32BF6128D00528F38 /* EpisodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewController.swift; sourceTree = "<group>"; };
 		EAE397D52BF6129A00528F38 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		EAE397D92BF62CEB00528F38 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +76,6 @@
 				EAE397C02BF5259900528F38 /* Models */,
 				EAE397BF2BF5258D00528F38 /* Controllers */,
 				EAE397B92BF5201A00528F38 /* Info.plist */,
-				EAE397D92BF62CEB00528F38 /* .gitignore */,
 			);
 			path = RickAndMorty;
 			sourceTree = "<group>";
@@ -211,7 +208,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAE397B82BF5201A00528F38 /* LaunchScreen.storyboard in Resources */,
-				EAE397DA2BF62CEB00528F38 /* .gitignore in Resources */,
 				EAE397B52BF5201A00528F38 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
