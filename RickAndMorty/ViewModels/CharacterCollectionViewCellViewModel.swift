@@ -26,7 +26,7 @@ final class CharacterCollectionViewCellViewModel {
     }
     
     public var characterStatusText: String {
-        return characterStatus.rawValue
+        return "Status: \(characterStatus.text)"
     }
     
     public func fetchData(competion: @escaping (Result<Data, NetworkError>) -> Void) {

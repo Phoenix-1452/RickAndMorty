@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol CharacterListViewDelegate: AnyObject {
+    func characterListView(
+        _ characterListView: CharacterListView,
+        didSelectCharacter character: Character
+    )
+}
+
 final class CharacterListView: UIView {
+    
+    public weak var delegate: CharacterListViewDelegate?
     
     private let viewModel = CharacterListViewViewModel()
     
@@ -38,6 +47,7 @@ final class CharacterListView: UIView {
         
         addConstraints()
         spinner.startAnimating()
+        viewModel.delegate = self
         viewModel.fetchCharacters()
         setUpCollectionView()
     }
@@ -64,12 +74,22 @@ final class CharacterListView: UIView {
     private func setUpCollectionView() {
         collectionView.dataSource = viewModel
         collectionView.delegate = viewModel
-        DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
-            self.spinner.stopAnimating()
-            self.collectionView.isHidden = false
-            UIView.animate(withDuration: 0.4) {
-                self.collectionView.alpha = 1
-            }
-        })
+    }
+}
+
+extension CharacterListView: CharacterListViewViewModelDelegate {
+    
+    func didSelectCharacter(_ character: Character) {
+        delegate?.characterListView(self, didSelectCharacter: character)
+    }
+    
+    func didLoadInitialCharacters() {
+        spinner.stopAnimating()
+        collectionView.reloadData()
+        collectionView.isHidden = false
+        
+        UIView.animate(withDuration: 0.4) {
+            self.collectionView.alpha = 1
+        }
     }
 }
