@@ -20,11 +20,13 @@ final class CharacterListView: UIView {
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(CharacterCollectionViewCell.self, forCellWithReuseIdentifier: CharacterCollectionViewCell.cellIdentifier)
         
         return collectionView
     }()
@@ -61,6 +63,7 @@ final class CharacterListView: UIView {
     
     private func setUpCollectionView() {
         collectionView.dataSource = viewModel
+        collectionView.delegate = viewModel
         DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
             self.spinner.stopAnimating()
             self.collectionView.isHidden = false

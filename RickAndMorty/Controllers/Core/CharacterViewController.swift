@@ -16,6 +16,10 @@ final class CharacterViewController: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Characters"
         view.addSubview(characterListView)
+        setUpView()
+    }
+    
+    private func setUpView() {
         NSLayoutConstraint.activate([
             characterListView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             characterListView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
