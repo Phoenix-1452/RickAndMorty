@@ -8,13 +8,7 @@
 import UIKit
 
 final class CharacterViewController: UIViewController, CharacterListViewDelegate {
-    
-    func characterListView(_ characterListView: CharacterListView, didSelectCharacter character: Character) {
-        let viewModel = CharacterDetailViewViewModel(character: character)
-        let characterVC = CharacterDetailViewController(viewModel: viewModel)
-        navigationController?.pushViewController(characterVC, animated: true)
-    }
-    
+
     private let characterListView = CharacterListView()
 
     override func viewDidLoad() {
@@ -35,6 +29,11 @@ final class CharacterViewController: UIViewController, CharacterListViewDelegate
         ])
     }
     
-
+    func characterListView(_ characterListView: CharacterListView, didSelectCharacter character: Character) {
+        let viewModel = CharacterDetailViewViewModel(character: character)
+        let detailVC = CharacterDetailViewController(viewModel: viewModel)
+        detailVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 
 }

@@ -8,14 +8,18 @@
 import UIKit
 
 class CharacterDetailViewController: UIViewController {
+    
+    private let viewModel: CharacterDetailViewViewModel
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        title = viewModel.title
     }
     
     init(viewModel: CharacterDetailViewViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
