@@ -51,7 +51,7 @@ enum CharacterStatus: String, Codable {
     }
 }
 
-// MARK: - CharacterStatus
+// MARK: - CharacterGender
 enum CharacterGender: String, Codable {
     case male = "Male"
     case female = "Female"
