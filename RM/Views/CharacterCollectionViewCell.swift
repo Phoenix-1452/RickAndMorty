@@ -9,11 +9,7 @@ import UIKit
 
 /// Single cell for a character
 class CharacterCollectionViewCell: UICollectionViewCell {
-    
-//    private let viewModel = CharacterListViewViewModel()
-
     static let cellIdentifier = "CharacterCollectionViewCell"
-    
     var onLikeButtonTapped: (() -> Void)?
     
     private let likeButton: UIButton = {
@@ -66,7 +62,6 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func addConstraints() {
         NSLayoutConstraint.activate([
             statusLabel.heightAnchor.constraint(equalToConstant: 30),
@@ -90,19 +85,16 @@ class CharacterCollectionViewCell: UICollectionViewCell {
 
         ])
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
-
     }
     
     @objc private func likeButtonTapped(_ sender: UIButton) {
         sender.isSelected.toggle()
-        print("Button pressed")
         onLikeButtonTapped?()
     }
     
     private func setupCornerRadius() {
         imageView.layer.cornerRadius = 10
         imageView.layer.masksToBounds = true
-
         contentView.layer.cornerRadius = 10
         contentView.layer.masksToBounds = true
     }
@@ -113,7 +105,6 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         nameLabel.text = nil
         statusLabel.text = nil
         likeButton.isSelected = false
-
     }
     
     public func configure(with viewModel: CharacterCollectionViewCellViewModel) {
@@ -124,6 +115,21 @@ class CharacterCollectionViewCell: UICollectionViewCell {
             guard let self = self else { return }
             self.likeButton.isSelected = viewModel.isLiked
         }
+//        viewModel.fetchData()
+//            .receive(on: DispatchQueue.main)
+//            .sink(receiveCompletion: { completion in
+//                switch completion {
+//                case .finished:
+//                    break
+//                case .failure(let error):
+//                    print("Failed with error: \(error)")
+//                }
+//            }, receiveValue: { [weak self] data in
+//                let image = UIImage(data: data)
+//                self?.imageView.image = image
+//            })
+//    }
+        
         viewModel.fetchData { [weak self] result in
             switch result {
             case .success(let data):

@@ -9,7 +9,7 @@
 import UIKit
 import Combine
 
-class CharacterListView: UIView {
+class TestView: UIView {
     
     private var cancellables = Set<AnyCancellable>()
 
@@ -73,12 +73,5 @@ class CharacterListView: UIView {
         collectionView.insertItems(at: indexPaths)
     }
     
-    func indexPath(for cell: UICollectionViewCell) -> IndexPath? {
-        return collectionView.indexPath(for: cell)
-    }
-    
-    func deleteItems(at indexPaths: [IndexPath]) {
-        return collectionView.deleteItems(at: indexPaths)
-    }
-    
 }
+

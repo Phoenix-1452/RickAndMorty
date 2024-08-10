@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		EA2FB2B12C4995CB00544176 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FB2B02C4995CB00544176 /* CharacterDetailViewController.swift */; };
+		EA2FB2B32C5146CF00544176 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FB2B22C5146CF00544176 /* Coordinator.swift */; };
+		EA2FB2B62C51475500544176 /* CharactersCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FB2B52C51475500544176 /* CharactersCoordinator.swift */; };
+		EA2FB2B82C51485700544176 /* FavouritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FB2B72C51485700544176 /* FavouritesCoordinator.swift */; };
+		EA2FB2BB2C53989900544176 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FB2BA2C53989900544176 /* ImageLoader.swift */; };
+		EA2FB2BD2C5D192D00544176 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2FB2BC2C5D192D00544176 /* TestView.swift */; };
 		EA52F22A2C39A8E200BDB090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F2292C39A8E200BDB090 /* AppDelegate.swift */; };
 		EA52F22C2C39A8E200BDB090 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F22B2C39A8E200BDB090 /* SceneDelegate.swift */; };
 		EA52F2332C39A8E500BDB090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA52F2322C39A8E500BDB090 /* Assets.xcassets */; };
 		EA52F2362C39A8E500BDB090 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA52F2342C39A8E500BDB090 /* LaunchScreen.storyboard */; };
-		EA52F24E2C39A9DD00BDB090 /* FavoritesCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F24B2C39A9DD00BDB090 /* FavoritesCharactersViewController.swift */; };
+		EA52F24E2C39A9DD00BDB090 /* FavouritesCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F24B2C39A9DD00BDB090 /* FavouritesCharactersViewController.swift */; };
 		EA52F24F2C39A9DD00BDB090 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F24C2C39A9DD00BDB090 /* CharacterViewController.swift */; };
 		EA52F2502C39A9DD00BDB090 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F24D2C39A9DD00BDB090 /* TabBarViewController.swift */; };
 		EA52F25A2C39AA7300BDB090 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F2552C39AA7300BDB090 /* Location.swift */; };
@@ -28,18 +33,22 @@
 		EA52F26D2C39AAAB00BDB090 /* CharacterListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F26A2C39AAAB00BDB090 /* CharacterListViewViewModel.swift */; };
 		EA52F2702C3AAAA600BDB090 /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F26F2C3AAAA600BDB090 /* CharacterService.swift */; };
 		EA52F2722C3AAC8A00BDB090 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA52F2712C3AAC8A00BDB090 /* Extensions.swift */; };
-		EA9423FA2C45659A00B7E12D /* LikedCharactersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA9423F92C45659A00B7E12D /* LikedCharactersListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EA2FB2B02C4995CB00544176 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		EA2FB2B22C5146CF00544176 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		EA2FB2B52C51475500544176 /* CharactersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCoordinator.swift; sourceTree = "<group>"; };
+		EA2FB2B72C51485700544176 /* FavouritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCoordinator.swift; sourceTree = "<group>"; };
+		EA2FB2BA2C53989900544176 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		EA2FB2BC2C5D192D00544176 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		EA52F2262C39A8E200BDB090 /* RM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA52F2292C39A8E200BDB090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA52F22B2C39A8E200BDB090 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EA52F2322C39A8E500BDB090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA52F2352C39A8E500BDB090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA52F2372C39A8E500BDB090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA52F24B2C39A9DD00BDB090 /* FavoritesCharactersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesCharactersViewController.swift; sourceTree = "<group>"; };
+		EA52F24B2C39A9DD00BDB090 /* FavouritesCharactersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesCharactersViewController.swift; sourceTree = "<group>"; };
 		EA52F24C2C39A9DD00BDB090 /* CharacterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		EA52F24D2C39A9DD00BDB090 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		EA52F2552C39AA7300BDB090 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -55,7 +64,6 @@
 		EA52F26A2C39AAAB00BDB090 /* CharacterListViewViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterListViewViewModel.swift; sourceTree = "<group>"; };
 		EA52F26F2C3AAAA600BDB090 /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
 		EA52F2712C3AAC8A00BDB090 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		EA9423F92C45659A00B7E12D /* LikedCharactersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedCharactersListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA2FB2B42C51473C00544176 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				EA2FB2B22C5146CF00544176 /* Coordinator.swift */,
+				EA2FB2B52C51475500544176 /* CharactersCoordinator.swift */,
+				EA2FB2B72C51485700544176 /* FavouritesCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		EA2FB2B92C51704200544176 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				EA2FB2BA2C53989900544176 /* ImageLoader.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		EA52F21D2C39A8E200BDB090 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +114,8 @@
 		EA52F2282C39A8E200BDB090 /* RM */ = {
 			isa = PBXGroup;
 			children = (
+				EA2FB2B92C51704200544176 /* Managers */,
+				EA2FB2B42C51473C00544176 /* Coordinator */,
 				EA52F26E2C3AAA8B00BDB090 /* Api */,
 				EA52F2522C39AA1F00BDB090 /* Application */,
 				EA52F2532C39AA7300BDB090 /* Models */,
@@ -105,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				EA52F24C2C39A9DD00BDB090 /* CharacterViewController.swift */,
-				EA52F24B2C39A9DD00BDB090 /* FavoritesCharactersViewController.swift */,
+				EA52F24B2C39A9DD00BDB090 /* FavouritesCharactersViewController.swift */,
 				EA52F24D2C39A9DD00BDB090 /* TabBarViewController.swift */,
 				EA2FB2B02C4995CB00544176 /* CharacterDetailViewController.swift */,
 			);
@@ -152,8 +180,8 @@
 		EA52F25E2C39AA9500BDB090 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EA2FB2BC2C5D192D00544176 /* TestView.swift */,
 				EA52F25F2C39AA9500BDB090 /* CharacterListView.swift */,
-				EA9423F92C45659A00B7E12D /* LikedCharactersListView.swift */,
 				EA52F2602C39AA9500BDB090 /* CharacterCollectionViewCell.swift */,
 				EA52F2612C39AA9500BDB090 /* CharacterDetailView.swift */,
 				EA52F2622C39AA9500BDB090 /* FooterLoadingCollectionReusableView.swift */,
@@ -260,15 +288,19 @@
 				EA52F25B2C39AA7300BDB090 /* Character.swift in Sources */,
 				EA52F26D2C39AAAB00BDB090 /* CharacterListViewViewModel.swift in Sources */,
 				EA52F2662C39AA9500BDB090 /* FooterLoadingCollectionReusableView.swift in Sources */,
-				EA52F24E2C39A9DD00BDB090 /* FavoritesCharactersViewController.swift in Sources */,
+				EA52F24E2C39A9DD00BDB090 /* FavouritesCharactersViewController.swift in Sources */,
+				EA2FB2B82C51485700544176 /* FavouritesCoordinator.swift in Sources */,
 				EA52F26B2C39AAAB00BDB090 /* CharacterDetailViewViewModel.swift in Sources */,
+				EA2FB2BB2C53989900544176 /* ImageLoader.swift in Sources */,
 				EA52F25D2C39AA7300BDB090 /* GetAllCharactersResponse.swift in Sources */,
 				EA52F2502C39A9DD00BDB090 /* TabBarViewController.swift in Sources */,
 				EA52F26C2C39AAAB00BDB090 /* CharacterCollectionViewCellViewModel.swift in Sources */,
 				EA52F25A2C39AA7300BDB090 /* Location.swift in Sources */,
-				EA9423FA2C45659A00B7E12D /* LikedCharactersListView.swift in Sources */,
 				EA52F2642C39AA9500BDB090 /* CharacterCollectionViewCell.swift in Sources */,
 				EA52F22C2C39A8E200BDB090 /* SceneDelegate.swift in Sources */,
+				EA2FB2BD2C5D192D00544176 /* TestView.swift in Sources */,
+				EA2FB2B62C51475500544176 /* CharactersCoordinator.swift in Sources */,
+				EA2FB2B32C5146CF00544176 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

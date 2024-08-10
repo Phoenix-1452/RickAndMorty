@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 enum NetworkError: Error {
     case badURL
@@ -17,7 +18,7 @@ final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
     
     public let characterName: String
     private let characterStatus: CharacterStatus
-    private let characterImageURL: URL?
+    public let characterImageURL: URL?
     public var isLiked: Bool
     var didChange: (() -> Void)?
     
@@ -29,6 +30,7 @@ final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
         hasher.combine(characterName)
         hasher.combine(characterStatus)
         hasher.combine(characterImageURL)
+        hasher.combine(isLiked)
     }
     
     init(characterName: String, characterStatus: CharacterStatus, characterImageURL: URL?, isLiked: Bool) {
@@ -42,19 +44,11 @@ final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
         return "Status: \(characterStatus.text)"
     }
     
-    public func fetchData(competion: @escaping (Result<Data, NetworkError>) -> Void) {
+    public func fetchData(completion: @escaping (Result<Data, NetworkError>) -> Void) {
         guard let url = characterImageURL else {
-            competion(.failure(.badURL))
+            completion(.failure(.badURL))
             return
         }
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) { data, _, error in
-            guard let data = data, error == nil else {
-                competion(.failure(.requestFailed))
-                return
-            }
-            competion(.success(data))
-        }
-        task.resume()
+        ImageLoader.shared.loadImage(url, completion: completion)
     }
 }
