@@ -9,6 +9,7 @@ import UIKit
 
 /// Single cell for a character
 class CharacterCollectionViewCell: UICollectionViewCell {
+    
     static let cellIdentifier = "CharacterCollectionViewCell"
     var onLikeButtonTapped: (() -> Void)?
     
@@ -111,24 +112,10 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         nameLabel.text = viewModel.characterName
         statusLabel.text = viewModel.characterStatusText
         likeButton.isSelected = viewModel.isLiked
-        viewModel.didChange = { [weak self] in
-            guard let self = self else { return }
-            self.likeButton.isSelected = viewModel.isLiked
-        }
-//        viewModel.fetchData()
-//            .receive(on: DispatchQueue.main)
-//            .sink(receiveCompletion: { completion in
-//                switch completion {
-//                case .finished:
-//                    break
-//                case .failure(let error):
-//                    print("Failed with error: \(error)")
-//                }
-//            }, receiveValue: { [weak self] data in
-//                let image = UIImage(data: data)
-//                self?.imageView.image = image
-//            })
-//    }
+//        viewModel.didChange = { [weak self] in
+//            guard let self = self else { return }
+//            self.likeButton.isSelected = viewModel.isLiked
+//        }
         
         viewModel.fetchData { [weak self] result in
             switch result {

@@ -1,31 +1,34 @@
-////
-////  FavouritesCoordinator.swift
-////  RM
-////
-////  Created by Vlad Sadovodov on 24.07.2024.
-////
 //
-//import Foundation
-//import UIKit
+//  FavouritesCoordinator.swift
+//  RM
 //
-//class FavouritesCoordinator: Coordinator {
-//    var navigationController: UINavigationController
+//  Created by Vlad Sadovodov on 24.07.2024.
 //
-//    init(navigationController: UINavigationController) {
-//        self.navigationController = navigationController
-//    }
-//
-//    func start() {
-//        let viewModel = CharacterListViewViewModel()
-//        let likedCharacterListView = LikedCharactersListView(viewModel: viewModel)
-//        let favouritesVC = FavouritesCharactersViewController(characterListView: likedCharacterListView)
-//        favouritesVC.coordinator = self
-//        navigationController.pushViewController(favouritesVC, animated: false)
-//    }
-//
-//    // Метод для показа деталей персонажа
-//    func showCharacterDetail(viewModel: CharacterDetailViewViewModel) {
-//        let detailVC = CharacterDetailViewController(viewModel: viewModel)
-//        navigationController.pushViewController(detailVC, animated: true)
-//    }
-//}
+
+import Foundation
+import UIKit
+
+final class FavouritesCoordinator: Coordinator {
+    var navigationController: UINavigationController
+    let viewModel: CharacterListViewViewModel
+    
+    init(navigationController: UINavigationController, viewModel: CharacterListViewViewModel) {
+        self.navigationController = navigationController
+        self.viewModel = viewModel
+    }
+    
+    func start() {
+        let favouritesVC = FavouritesCharactersViewController(viewModel: viewModel)
+        favouritesVC.coordinator = self
+        favouritesVC.navigationItem.largeTitleDisplayMode = .automatic
+        navigationController.pushViewController(favouritesVC, animated: false)
+    }
+    
+    // Пример метода для показа деталей персонажа
+    func showCharacterDetail(for character: Character) {
+        let detailViewModel = CharacterDetailViewViewModel(character: character)
+        let detailVC = CharacterDetailViewController(viewModel: detailViewModel)
+
+        navigationController.pushViewController(detailVC, animated: true)
+    }
+}

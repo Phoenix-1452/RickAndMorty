@@ -32,7 +32,6 @@ final class CharacterListViewViewModel: NSObject {
     private var currentPage = 1
 
     let didFetchNewData = PassthroughSubject<[IndexPath], Never>()
-    
     let didUpdateData = PassthroughSubject<[IndexPath], Never>()
 
     override init() {
@@ -49,7 +48,6 @@ final class CharacterListViewViewModel: NSObject {
     
     public func dislikeCharacter(_ character: Character) {
         if let index = characters.firstIndex(where: { $0.id == character.id }) {
-            print(index)
             characters[index].isLiked?.toggle()
             cellViewModels[index].isLiked.toggle()
             let indexPathsToAdd: [IndexPath] = Array(arrayLiteral: index).compactMap({

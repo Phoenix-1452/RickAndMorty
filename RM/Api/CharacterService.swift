@@ -8,28 +8,6 @@
 import Foundation
 import Combine
 
-class CharacterService {
-    static let shared = CharacterService()
-    private init() {}
-    
-    func fetchCharacters() -> AnyPublisher<GetAllCharactersResponse, Error> {
-        let url = URL(string: "https://rickandmortyapi.com/api/character")!
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: GetAllCharactersResponse.self, decoder: JSONDecoder())
-            .map { $0 }
-            .eraseToAnyPublisher()
-    }
-    func fetchAdditionalCharacters(url: URL) -> AnyPublisher<GetAllCharactersResponse, Error> {
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            .decode(type: GetAllCharactersResponse.self, decoder: JSONDecoder())
-            .map { $0 }
-            .eraseToAnyPublisher()
-    }
-    
-}
-
 enum NetworkingError: Error {
     case invalidURL
     case requestFailed(Error)
@@ -41,7 +19,6 @@ class NetworkingManager {
     static let shared = NetworkingManager()
     private init() {}
     
-    // Generic fetch method
     func fetchData<T: Decodable>(from urlString: String, type: T.Type) -> AnyPublisher<T, NetworkingError> {
         guard let url = URL(string: urlString) else {
             return Fail(error: NetworkingError.invalidURL).eraseToAnyPublisher()

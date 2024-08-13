@@ -13,7 +13,7 @@ class CharacterListView: UIView {
     
     private var cancellables = Set<AnyCancellable>()
 
-    private let spinner: UIActivityIndicatorView = {
+    private lazy var spinner: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.hidesWhenStopped = true
         spinner.translatesAutoresizingMaskIntoConstraints = false

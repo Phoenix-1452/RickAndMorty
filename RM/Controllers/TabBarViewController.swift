@@ -8,16 +8,11 @@ final class TabBarViewController: UITabBarController {
     }
     
     private func setUpTabs() {
-        // Создаем общий ViewModel, который будет использоваться двумя контроллерами
         let viewModel = CharacterListViewViewModel()
 
-        // Создаем первый контроллер для всех персонажей
         let charactersVC = createCharactersViewController(viewModel: viewModel)
-
-        // Создаем второй контроллер для лайкнутых персонажей
         let favouritesVC = createFavouritesViewController(viewModel: viewModel)
 
-        // Настраиваем вкладки и навигационные контроллеры
         let charactersNav = UINavigationController(rootViewController: charactersVC)
         let favouritesNav = UINavigationController(rootViewController: favouritesVC)
 
@@ -36,13 +31,13 @@ final class TabBarViewController: UITabBarController {
     }
     
     private func createCharactersViewController(viewModel: CharacterListViewViewModel) -> UIViewController {
-        let charactersVC = CharacterViewController(viewModel: viewModel) // Передаем ViewModel во ViewController
+        let charactersVC = CharacterViewController(viewModel: viewModel)
         charactersVC.navigationItem.largeTitleDisplayMode = .automatic
         return charactersVC
     }
     
     private func createFavouritesViewController(viewModel: CharacterListViewViewModel) -> UIViewController {
-        let favouritesVC = FavouritesCharactersViewController(viewModel: viewModel) // Передаем ViewModel во ViewController
+        let favouritesVC = FavouritesCharactersViewController(viewModel: viewModel)
         favouritesVC.navigationItem.largeTitleDisplayMode = .automatic
         return favouritesVC
     }

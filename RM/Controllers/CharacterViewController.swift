@@ -8,11 +8,12 @@
 import UIKit
 import Combine
 
-class CharacterViewController: UIViewController {
+final class CharacterViewController: UIViewController {
     
     private let characterListView: CharacterListView
     private let viewModel: CharacterListViewViewModel
     private var cancellables = Set<AnyCancellable>()
+    var coordinator: CharactersCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +71,7 @@ class CharacterViewController: UIViewController {
 
 extension CharacterViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.cellViewModels.count
+        return viewModel.characters.count
 
     }
 
@@ -91,19 +92,14 @@ extension CharacterViewController: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Получаем выбранного персонажа из массива characters
         let character = viewModel.characters[indexPath.row]
-        
-        // Создаем ViewModel и ViewController для деталей персонажа
-        let detailViewModel = CharacterDetailViewViewModel(character: character)
-        let detailViewController = CharacterDetailViewController(viewModel: detailViewModel)
-        
-        // Переход к экрану деталей
-        if let navigationController = self.navigationController {
-            navigationController.pushViewController(detailViewController, animated: true)
-        } else {
-            print("Navigation Controller is not available")
-        }
+        coordinator?.showCharacterDetail(for: character)  // Используем координатор для перехода
+
+//        if let navigationController = self.navigationController {
+//            navigationController.pushViewController(detailViewController, animated: true)
+//        } else {
+//            print("Navigation Controller is not available")
+//        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -20,7 +20,7 @@ final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
     private let characterStatus: CharacterStatus
     public let characterImageURL: URL?
     public var isLiked: Bool
-    var didChange: (() -> Void)?
+//    var didChange: (() -> Void)?
     
     static func == (lhs: CharacterCollectionViewCellViewModel, rhs: CharacterCollectionViewCellViewModel) -> Bool {
         return lhs.hashValue == rhs.hashValue

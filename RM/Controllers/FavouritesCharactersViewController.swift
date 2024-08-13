@@ -13,6 +13,7 @@ final class FavouritesCharactersViewController: UIViewController {
     private let characterListView: CharacterListView
     private let viewModel: CharacterListViewViewModel
     private var cancellables = Set<AnyCancellable>()
+    var coordinator: FavouritesCoordinator?  // Добавляем ссылку на координатор
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,19 +92,14 @@ extension FavouritesCharactersViewController: UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // Получаем выбранного персонажа из массива characters
         let character = viewModel.characters.filter({$0.isLiked == true})[indexPath.row]
+        coordinator?.showCharacterDetail(for: character)  // Используем координатор для перехода
 
-        // Создаем ViewModel и ViewController для деталей персонажа
-        let detailViewModel = CharacterDetailViewViewModel(character: character)
-        let detailViewController = CharacterDetailViewController(viewModel: detailViewModel)
-        
-        // Переход к экрану деталей
-        if let navigationController = self.navigationController {
-            navigationController.pushViewController(detailViewController, animated: true)
-        } else {
-            print("Navigation Controller is not available")
-        }
+//        if let navigationController = self.navigationController {
+//            navigationController.pushViewController(detailViewController, animated: true)
+//        } else {
+//            print("Navigation Controller is not available")
+//        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
