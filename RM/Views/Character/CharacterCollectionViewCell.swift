@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 /// Single cell for a character
 class CharacterCollectionViewCell: UICollectionViewCell {
@@ -83,7 +84,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
             likeButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             likeButton.widthAnchor.constraint(equalToConstant: 30),
             likeButton.heightAnchor.constraint(equalToConstant: 30),
-
+            
         ])
         likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
     }
@@ -108,26 +109,50 @@ class CharacterCollectionViewCell: UICollectionViewCell {
         likeButton.isSelected = false
     }
     
+    //    public func configure(with viewModel: CharacterCollectionViewCellViewModel) {
+    //        // Устанавливаем текстовые данные
+    //        nameLabel.text = viewModel.characterName
+    //        statusLabel.text = viewModel.characterStatusText
+    //        likeButton.isSelected = viewModel.isLiked
+    //
+    //        // Очищаем изображение перед загрузкой нового
+    //        imageView.image = nil
+    //
+    //        // Создаем локальную переменную для хранения текущего viewModel
+    //        let currentViewModel = viewModel
+    //
+    //        // Асинхронная загрузка изображения
+    //        viewModel.fetchData { [weak self] result in
+    //            guard let self = self else { return }
+    //
+    //            // Проверка, что viewModel всё ещё соответствует текущему
+    //            guard currentViewModel === viewModel else { return }
+    //
+    //            switch result {
+    //            case .success(let data):
+    //                DispatchQueue.main.async {
+    //                    // Проверяем еще раз на соответствие перед установкой изображения
+    //                    if currentViewModel === viewModel, let image = UIImage(data: data) {
+    //                        self.imageView.image = image
+    //                    }
+    //                }
+    //            case .failure(let error):
+    //                print("Failed to load image: \(error)")
+    //            }
+    //        }
+    //    }
+    
     public func configure(with viewModel: CharacterCollectionViewCellViewModel) {
+        // Устанавливаем текстовые данные
         nameLabel.text = viewModel.characterName
         statusLabel.text = viewModel.characterStatusText
         likeButton.isSelected = viewModel.isLiked
-//        viewModel.didChange = { [weak self] in
-//            guard let self = self else { return }
-//            self.likeButton.isSelected = viewModel.isLiked
-//        }
         
-        viewModel.fetchData { [weak self] result in
-            switch result {
-            case .success(let data):
-                DispatchQueue.main.async {
-                    let image = UIImage(data: data)
-                    self?.imageView.image = image
-                }
-            case .failure(let error):
-                print(error)
-                break
-            }
+        // Загрузка изображения с использованием SDWebImage
+        if let url = viewModel.characterImageURL {
+            imageView.sd_setImage(with: url, placeholderImage: nil, options: [.continueInBackground, .retryFailed], completed: nil)
+        } else {
+            imageView.image = nil // Убираем изображение, если URL отсутствует
         }
     }
 }

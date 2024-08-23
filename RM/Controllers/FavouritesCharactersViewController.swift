@@ -13,7 +13,7 @@ final class FavouritesCharactersViewController: UIViewController {
     private let characterListView: CharacterListView
     private let viewModel: CharacterListViewViewModel
     private var cancellables = Set<AnyCancellable>()
-    var coordinator: FavouritesCoordinator?  // Добавляем ссылку на координатор
+    weak var coordinator: FavouritesCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,7 @@ final class FavouritesCharactersViewController: UIViewController {
         self.navigationItem.backBarButtonItem = backButton
         view.addSubview(characterListView)
         setUpView()
+        addSearchButton()
         setupBindings()
     }
     
@@ -35,6 +36,14 @@ final class FavouritesCharactersViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didTapSearch))
+    }
+    
+    @objc private func didTapSearch() {
+        print("searching...")
     }
     
     private func setUpView() {
@@ -92,8 +101,9 @@ extension FavouritesCharactersViewController: UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+ 
         let character = viewModel.characters.filter({$0.isLiked == true})[indexPath.row]
-        coordinator?.showCharacterDetail(for: character)  // Используем координатор для перехода
+        coordinator?.showCharacterDetail(for: character)
 
 //        if let navigationController = self.navigationController {
 //            navigationController.pushViewController(detailViewController, animated: true)

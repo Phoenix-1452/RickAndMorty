@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SDWebImage
 
 enum NetworkError: Error {
     case badURL
@@ -15,7 +16,8 @@ enum NetworkError: Error {
 }
 
 final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
-    
+//    let imageLoader: ImageLoading
+
     public let characterName: String
     private let characterStatus: CharacterStatus
     public let characterImageURL: URL?
@@ -38,6 +40,8 @@ final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
         self.characterStatus = characterStatus
         self.characterImageURL = characterImageURL
         self.isLiked = isLiked
+//        self.imageLoader = imageLoader
+
     }
     
     public var characterStatusText: String {
@@ -49,6 +53,17 @@ final class CharacterCollectionViewCellViewModel: Hashable, Equatable {
             completion(.failure(.badURL))
             return
         }
-        ImageLoader.shared.loadImage(url, completion: completion)
+
+        SDWebImageDownloader.shared.downloadImage(with: url, options: [.continueInBackground], progress: nil) { (image, data, error, finished) in
+            if let error = error {
+                completion(.failure(.requestFailed))
+            } else if let data = data {
+                completion(.success(data))
+            } else {
+                completion(.failure(.unknown))
+            }
+        }
     }
+//        imageLoader.loadImage(url, completion: completion)
+    
 }

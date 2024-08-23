@@ -15,9 +15,13 @@ enum NetworkingError: Error {
     case decodingFailed(Error)
 }
 
-class NetworkingManager {
-    static let shared = NetworkingManager()
-    private init() {}
+protocol NetworkManaging {
+    func fetchData<T: Decodable>(from urlString: String, type: T.Type) -> AnyPublisher<T, NetworkingError>
+}
+
+final class NetworkingManager: NetworkManaging {
+//    static let shared = NetworkingManager()
+//    private init() {}
     
     func fetchData<T: Decodable>(from urlString: String, type: T.Type) -> AnyPublisher<T, NetworkingError> {
         guard let url = URL(string: urlString) else {

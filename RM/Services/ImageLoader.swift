@@ -7,12 +7,14 @@
 
 import Foundation
 
-final class ImageLoader {
-    static let shared = ImageLoader()
-    private init() {}
+protocol ImageLoading {
+    func loadImage(_ url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void)
+}
+final class ImageLoader: ImageLoading {
+//    static let shared = ImageLoader()
+//    private init() {}
     
     private var imageDataCache = NSCache<NSString, NSData>()
-
     
     func loadImage(_ url: URL, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         let request = URLRequest(url: url)

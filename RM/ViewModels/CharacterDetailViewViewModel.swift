@@ -10,9 +10,11 @@ import Foundation
 final class CharacterDetailViewViewModel {
     
     private let character: Character
-    
-    init(character: Character) {
+    private let imageLoader: ImageLoading
+
+    init(character: Character, imageLoader: ImageLoading) {
         self.character = character
+        self.imageLoader = imageLoader
     }
     
     public var title: String {
@@ -53,6 +55,6 @@ final class CharacterDetailViewViewModel {
     
     public func fetchData(completion: @escaping (Result<Data, NetworkError>) -> Void) {
         guard let url = URL(string: image) else { return  }
-        ImageLoader.shared.loadImage(url, completion: completion)
+        imageLoader.loadImage(url, completion: completion)
     }
 }

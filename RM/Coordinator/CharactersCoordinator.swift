@@ -25,7 +25,7 @@ final class CharactersCoordinator: Coordinator {
     }
     
     func showCharacterDetail(for character: Character) {
-        let detailViewModel = CharacterDetailViewViewModel(character: character)
+        let detailViewModel = CharacterDetailViewViewModel(character: character, imageLoader: ImageLoader())
         let detailVC = CharacterDetailViewController(viewModel: detailViewModel)
 
         navigationController.pushViewController(detailVC, animated: true)

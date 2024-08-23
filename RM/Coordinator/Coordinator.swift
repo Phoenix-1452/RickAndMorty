@@ -16,22 +16,42 @@ protocol Coordinator {
 }
 
 final class AppCoordinator: Coordinator {
-    
     var navigationController: UINavigationController
     var tabBarController: UITabBarController
-    private var viewModel: CharacterListViewViewModel
+    private let viewModel: CharacterListViewViewModel
     private let window: UIWindow
+
+    // Храним координаторы как свойства
+    private var characterCoordinator: CharactersCoordinator?
+    private var favouritesCoordinator: FavouritesCoordinator?
+    let diContainer = DIContainer()
+
 
     init(window: UIWindow) {
         self.window = window
         self.navigationController = UINavigationController()
         self.tabBarController = UITabBarController()
-        self.viewModel = CharacterListViewViewModel()
+        
+//        diContainer.register(ImageLoading.self) {
+//            ImageLoader()
+//        }
+        diContainer.register(NetworkManaging.self) {
+            NetworkingManager()
+        }
+        
+        self.viewModel = CharacterListViewViewModel(
+            characterLoader: diContainer.resolve(NetworkManaging.self)
+//            imageLoader: diContainer.resolve(ImageLoading.self)
+        )
     }
 
     func start() {
         let characterCoordinator = CharactersCoordinator(navigationController: UINavigationController(), viewModel: viewModel)
         let favouritesCoordinator = FavouritesCoordinator(navigationController: UINavigationController(), viewModel: viewModel)
+
+        // Сохраняем сильные ссылки на координаторы
+        self.characterCoordinator = characterCoordinator
+        self.favouritesCoordinator = favouritesCoordinator
 
         characterCoordinator.start()
         favouritesCoordinator.start()

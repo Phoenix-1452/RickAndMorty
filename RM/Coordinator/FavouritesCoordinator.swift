@@ -26,7 +26,7 @@ final class FavouritesCoordinator: Coordinator {
     
     // Пример метода для показа деталей персонажа
     func showCharacterDetail(for character: Character) {
-        let detailViewModel = CharacterDetailViewViewModel(character: character)
+        let detailViewModel = CharacterDetailViewViewModel(character: character, imageLoader: ImageLoader())
         let detailVC = CharacterDetailViewController(viewModel: detailViewModel)
 
         navigationController.pushViewController(detailVC, animated: true)
